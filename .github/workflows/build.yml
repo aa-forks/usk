@@ -13,10 +13,9 @@ jobs:
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential
   
-      - name: Checkout lulle2007200/usk
+      - name: Checkout usk
         uses: actions/checkout@v3
         with:
-          repository: lulle2007200/usk
           path: usk
       
       - name: Checkout rehius/busk
@@ -50,6 +49,7 @@ jobs:
           mkdir -p $GITHUB_WORKSPACE/build/busk
           cd $GITHUB_WORKSPACE/build/busk
           cmake $GITHUB_WORKSPACE/busk
+          ls -lla $GITHUB_WORKSPACE/busk
           make
           make clean
           cd $GITHUB_WORKSPACE
